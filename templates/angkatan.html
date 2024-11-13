@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Angkatan</title>
+</head>
+<body>
+    <h1>Daftar Angkatan</h1>
+
+    <!-- Form untuk menambahkan angkatan baru -->
+    <h2>Tambahkan Angkatan</h2>
+    <form id="addAngkatanForm">
+        <label for="tahun">Tahun:</label>
+        <input type="text" id="tahun" name="tahun" required>
+        <button type="submit">Tambah Angkatan</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tahun</th>
+        </tr>
+        {% for a in angkatan %}
+        <tr>
+            <td>{{ a.id }}</td>
+            <td>{{ a.tahun }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        document.getElementById('addAngkatanForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch('/angkatan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                // Reload the page to show the new angkatan
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
