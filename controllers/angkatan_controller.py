@@ -29,7 +29,7 @@ def handle_angkatan():
     
 @angkatan_bp.route('/angkatan/view', methods=['GET'])
 def view_angkatan():
-    angkatan_list = Angkatan.query.all()  # Mengambil semua data angkatan
+    angkatan_list = Angkatan.query.all()
     
     # Mengirimkan data angkatan ke template
     return render_template('angkatan.html', angkatan=angkatan_list)
