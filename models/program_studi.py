@@ -2,7 +2,7 @@ from . import db
 
 
 class ProgramStudi(db.Model):
-    __tablename__ = 'program_studi'  # Ganti nama tabel di sini
+    __tablename__ = 'program_studi'
 
     id = db.Column(db.Integer, primary_key=True)
     program_studi = db.Column(db.String(100), nullable=False)
