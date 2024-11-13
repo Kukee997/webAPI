@@ -1,7 +1,7 @@
 from . import db
 
 class Mahasiswa(db.Model):
-    __tablename__ = 'mahasiswa'  # Nama tabel mahasiswa
+    __tablename__ = 'mahasiswa'
 
     id = db.Column(db.Integer, primary_key=True)
     nama = db.Column(db.String(100), nullable=False)
