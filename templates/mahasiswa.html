@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ m.nama }}</td>
                     <td>{{ m.nim }}</td>
-                    <td>{{ m.angkatan.tahun if m.angkatan else 'N/A' }}</td>  <!-- Menampilkan tahun -->
+                    <td>{{ m.angkatan.tahun if m.angkatan else 'N/A' }}</td>
                     <td>{{ m.program_studi.program_studi if m.program_studi else 'N/A' }}</td>
                 </tr>
                 {% endfor %}
