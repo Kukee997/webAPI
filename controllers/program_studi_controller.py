@@ -1,5 +1,5 @@
-from flask import Blueprint, request, jsonify, render_template  # Import render_template
-from models.program_studi import ProgramStudi  # Pastikan ini tetap
+from flask import Blueprint, request, jsonify, render_template
+from models.program_studi import ProgramStudi
 from models import db
 
 program_studi_bp = Blueprint('program_studi', __name__)
