@@ -26,7 +26,7 @@ def handle_mahasiswa():
             nama=data['nama'],
             nim=data['nim'],
             angkatan_id=data['angkatan_id'],
-            program_studi_id=data['program_studi_id']  # Pastikan ini sesuai
+            program_studi_id=data['program_studi_id']
         )
         db.session.add(new_mahasiswa)
         db.session.commit()
@@ -41,12 +41,8 @@ def handle_mahasiswa():
 
 @mahasiswa_bp.route('/', methods=['GET'])
 def home():
-    mahasiswa_list = Mahasiswa.query.all()  # Ambil semua data mahasiswa
+    mahasiswa_list = Mahasiswa.query.all()
     return render_template('mahasiswa.html', mahasiswa=mahasiswa_list)
-
-
-
-
 
 @mahasiswa_bp.route('/mahasiswa/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def handle_mahasiswa_by_id(id):
