@@ -14,7 +14,7 @@ def handle_mahasiswa():
                 'nama': m.nama,
                 'nim': m.nim,
                 'angkatan': m.angkatan.tahun if m.angkatan else None,
-                'program_studi': m.program_studi.program_studi if m.program_studi else None  # Pastikan ini sesuai
+                'program_studi': m.program_studi.program_studi if m.program_studi else None
             }
             for m in mahasiswa_list
         ]
@@ -54,7 +54,7 @@ def handle_mahasiswa_by_id(id):
             'nama': mahasiswa.nama,
             'nim': mahasiswa.nim,
             'angkatan': mahasiswa.angkatan.tahun if mahasiswa.angkatan else None,
-            'program_studi': mahasiswa.program_studi.program_studi if mahasiswa.program_studi else None  # Pastikan ini sesuai
+            'program_studi': mahasiswa.program_studi.program_studi if mahasiswa.program_studi else None
         })
 
     if request.method == 'PUT':
